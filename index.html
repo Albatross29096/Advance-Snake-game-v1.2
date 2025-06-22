@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 🔷 Main Game Container -->
+  <div class="game-container">
+
+    <!-- 🌀 Teleport Lobe Notification -->
+    <div id="lobeMessage" class="hidden">Lobes Unlocked!</div>
+
+    <!-- 💬 Popup Message (like Energy Boost or Wall Destroyed) -->
+    <div id="popupMessage" class="popup hidden">Message</div>
+
+    <!-- 🧾 Header Section with Score & Level -->
+    <div class="header">
+      <h1>Snake Game</h1>
+      <div class="info-row">
+        <div id="score">Score: 0</div>
+        <div id="highScore">High Score: 0</div>
+        <div id="level">Level: 1</div>
+      </div>
+
+      <!-- 🔁 Restart Game Button (during play) -->
+      <button id="restartBtn">Restart</button>
+      <button id="pauseBtn">Pause</button>
+    </div>
+
+   <div class="difficulty-container">
+  <label for="difficulty">Difficulty:</label>
+  <select id="difficulty">
+    <option value="normal">Normal</option>
+    <option value="medium">Medium</option>
+    <option value="hard">Hard</option>
+  </select>
+</div>
+
+
+
+    <!-- 🖼️ Game Canvas (where the snake is drawn) -->
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+  </div>
+
+  <div class="touch-controls">
+  <button id="upBtn">⬆️</button>
+  <div>
+    <button id="leftBtn">⬅️</button>
+    <button id="downBtn">⬇️</button>
+    <button id="rightBtn">➡️</button>
+  </div>
+</div>
+
+
+  <!-- 🔊 Sound Effects -->
+  <audio id="eatSound" src="https://www.soundjay.com/button/sounds/button-4.mp3"></audio>
+  <audio id="gameOverSound" src="https://www.soundjay.com/button/sounds/button-10.mp3"></audio>
+
+  <!-- ❌ Game Over Overlay -->
+  <div id="gameOverScreen" class="overlay hidden">
+    <div class="message-box">
+      <h2>Game Over</h2>
+      <p>Your Score: <span id="finalScore">0</span></p>
+
+      <!-- ✅ Play Again Button (bug fixed – JS binds this) -->
+      <button id="playAgainBtn">Play Again</button>
+    </div>
+  </div>
+
+  <!-- 📜 Game Logic Script -->
+  <script src="script.js"></script>
+</body>
+</html>
