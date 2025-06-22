@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header {
+  color: white;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+  flex-wrap: wrap;
+}
+#score, #level, #highScore {
+  font-size: 1.2rem;
+}
+#restartBtn {
+  padding: 5px 10px;
+  background: #4caf50;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+canvas {
+  background-color: #222;
+  box-shadow: 0 0 15px #000;
+  max-width: 100vw;
+  max-height: 80vh;
+}
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+.hidden {
+  display: none;
+}
+.message-box {
+  background: #333;
+  color: white;
+  padding: 20px 30px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #000;
+}
+.message-box button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  background: #4caf50;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+#lobeMessage {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  background: #111;
+  color: cyan;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid cyan;
+  box-shadow: 0 0 20px cyan;
+  z-index: 100;
+  animation: fadeOut 2s forwards 2s;
+}
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(-50%) scale(1.2);
+  }
+}
+.popup {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 999;
+  animation: fadeOut 2s forwards;
+  pointer-events: none;
+}
+.popup.hidden {
+  display: none;
+}
+
+.touch-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+.touch-controls button {
+  font-size: 24px;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 10px;
+  border: none;
+  background-color: #333;
+  color: white;
+}
+.touch-controls div {
+  display: flex;
+  justify-content: center;
+}
+
+#difficulty {
+  padding: 5px;
+  font-size: 16px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+/* 🔘 General button style */
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #28a745;  /* Green button */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+/* 🖱️ Hover effect */
+button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* 🖐️ Click effect */
+button:active {
+  background-color: #1e7e34;
+  transform: scale(0.98);
+}
+
+/* ❌ Disabled state */
+button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* 🎮 Pause button (optional custom style) */
+#pauseBtn {
+  background-color: #ffc107;
+  color: #000;
+}
+
+#pauseBtn:hover {
+  background-color: #e0a800;
+}
+
+/* 🎯 Difficulty dropdown container (optional wrapper) */
+.difficulty-container {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 🔽 Difficulty label */
+.difficulty-container label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 🔧 Difficulty select menu */
+#difficulty {
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 2px solid #28a745;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  color: #212529;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* 📱 Improve appearance for some browsers */
+#difficulty:focus {
+  outline: none;
+  border-color: #218838;
+  background-color: #fff;
+}
+
+/* 🧭 Dropdown arrow styling (for modern browsers) */
+#difficulty::-ms-expand {
+  display: none;
+}
+
+/* 🌈 Hover effect */
+#difficulty:hover {
+  background-color: #e9f5ee;
+  border-color: #218838;
+}
+
+/* Optional: dark mode adaptation */
+body.dark-mode #difficulty {
+  background-color: #333;
+  color: #fff;
+  border-color: #55ff99;
+}
+
